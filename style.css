@@ -1,0 +1,223 @@
+:root {
+  --bg: #dfe9dc;
+  --phone-shell: #0d120f;
+  --phone-glass: rgba(255, 255, 255, 0.12);
+  --screen-bg-1: #d9e5d0;
+  --screen-bg-2: #b8d0b1;
+  --screen-text: #143a2d;
+  --screen-muted: rgba(20, 58, 45, 0.65);
+  --green-accent: #3fcf6d;
+  --green-dark: #2f9d59;
+  --soft-shadow: rgba(24, 41, 28, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "Inter", "SF Pro Display", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.45), transparent 38%),
+    linear-gradient(180deg, #eff7ee 0%, var(--bg) 100%);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.phone-shell {
+  width: min(84vw, 390px);
+  aspect-ratio: 0.485;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 26px 42px rgba(36, 51, 38, 0.22));
+}
+
+.phone-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #0c0f10 0%, #090a0a 100%);
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-radius: 40px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    inset 0 5px 20px rgba(255, 255, 255, 0.07),
+    0 18px 30px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.phone-frame::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+}
+
+.dynamic-island {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 172px;
+  height: 30px;
+  border-radius: 999px;
+  background: rgba(7, 10, 9, 0.82);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px 0 10px;
+  z-index: 20;
+}
+
+.camera-orb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  margin-left: 4px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-left: auto;
+}
+
+.indicator-dot {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  background: var(--green-accent);
+  box-shadow: 0 0 10px rgba(63, 207, 109, 0.9);
+}
+
+.battery {
+  position: relative;
+  width: 27px;
+  height: 12px;
+  display: inline-block;
+  border: 1.3px solid rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.battery::before {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: 3px;
+  width: 2px;
+  height: 6px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.battery-fill {
+  position: absolute;
+  inset: 1px 2px 1px 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.75));
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 20%),
+    linear-gradient(180deg, var(--screen-bg-1) 0%, var(--screen-bg-2) 100%);
+  color: var(--screen-text);
+  opacity: 0.2;
+  transform: scale(0.98);
+  transition: opacity 0.9s ease, transform 0.9s ease, filter 0.9s ease;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.screen.visible {
+  opacity: 1;
+  transform: scale(1);
+  filter: saturate(1.05);
+}
+
+.time-block {
+  position: absolute;
+  top: 115px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--screen-text);
+}
+
+.date-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  color: rgba(18, 52, 40, 0.82);
+  margin-bottom: 6px;
+  text-transform: capitalize;
+}
+
+.time-label {
+  font-size: clamp(3.7rem, 5vw, 5rem);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  text-transform: none;
+}
+
+.unlock-text {
+  position: absolute;
+  bottom: 46px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  color: rgba(20, 58, 45, 0.7);
+  text-transform: none;
+}
+
+.screen.visible .unlock-text {
+  animation: hintPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+  }
+}
+
+@media (max-width: 430px) {
+  .phone-shell {
+    width: min(88vw, 360px);
+  }
+
+  .dynamic-island {
+    width: 152px;
+    height: 28px;
+  }
+}

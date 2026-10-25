@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone Lock Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="phone-shell" aria-label="Phone lock screen mockup">
+      <div class="phone-frame">
+        <div class="dynamic-island" aria-hidden="true">
+          <span class="camera-orb"></span>
+          <div class="status-pill">
+            <span class="indicator-dot"></span>
+            <span class="battery" aria-label="Battery status">
+              <span class="battery-cap"></span>
+              <span class="battery-fill"></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="screen" id="lockScreen">
+          <div class="time-block">
+            <div id="dateLabel" class="date-label">Loading date…</div>
+            <div id="timeLabel" class="time-label">9:41</div>
+          </div>
+
+          <div class="unlock-text">Swipe up to unlock</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
