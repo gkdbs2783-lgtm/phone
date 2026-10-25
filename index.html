@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="phone-shell" aria-label="Phone lock screen mockup">
-      <div class="phone-frame">
+      <div class="phone-frame" id="phoneFrame">
         <div class="dynamic-island" aria-hidden="true">
           <span class="camera-orb"></span>
           <div class="status-pill">
@@ -23,13 +23,56 @@
           </div>
         </div>
 
-        <div class="screen" id="lockScreen">
+        <div class="screen lock-screen" id="lockScreen" aria-live="polite">
           <div class="time-block">
             <div id="dateLabel" class="date-label">Loading date…</div>
             <div id="timeLabel" class="time-label">9:41</div>
           </div>
 
-          <div class="unlock-text">Swipe up to unlock</div>
+          <div class="unlock-indicator" aria-label="Swipe up to unlock">
+            <span class="unlock-handle"></span>
+            <span class="unlock-text">Swipe up to unlock</span>
+          </div>
+        </div>
+
+        <div class="screen home-screen" id="homeScreen" aria-label="Home screen">
+          <div class="home-top">
+            <span class="home-date">Thursday</span>
+          </div>
+
+          <div class="app-grid" aria-label="App icons">
+            <div class="app-item mail">
+              <span class="app-icon">✉</span>
+              <span class="app-label">Mail</span>
+            </div>
+            <div class="app-item photos">
+              <span class="app-icon">◌</span>
+              <span class="app-label">Photos</span>
+            </div>
+            <div class="app-item cam">
+              <span class="app-icon">◍</span>
+              <span class="app-label">Camera</span>
+            </div>
+            <div class="app-item notes">
+              <span class="app-icon">✎</span>
+              <span class="app-label">Notes</span>
+            </div>
+            <div class="app-item music">
+              <span class="app-icon">♫</span>
+              <span class="app-label">Music</span>
+            </div>
+            <div class="app-item safari">
+              <span class="app-icon">◐</span>
+              <span class="app-label">Safari</span>
+            </div>
+          </div>
+
+          <div class="dock" aria-label="Bottom dock">
+            <div class="dock-item phone">☎</div>
+            <div class="dock-item safari active">◐</div>
+            <div class="dock-item message">✉</div>
+            <div class="dock-item music">♫</div>
+          </div>
         </div>
       </div>
     </div>
