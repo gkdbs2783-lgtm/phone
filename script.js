@@ -10,7 +10,7 @@ const updateClock = () => {
   const timeOptions = {
     hour: 'numeric',
     minute: '2-digit',
-    hour12: true,
+    hour12: false,
   };
 
   const dateOptions = {
@@ -19,12 +19,12 @@ const updateClock = () => {
     day: 'numeric',
   };
 
-  const formattedTime = new Intl.DateTimeFormat('en-US', timeOptions).format(now).replace(' ', '');
-  const formattedDate = new Intl.DateTimeFormat('en-US', dateOptions).format(now);
+  const formattedTime = new Intl.DateTimeFormat('ko-KR', timeOptions).format(now);
+  const formattedDate = new Intl.DateTimeFormat('ko-KR', dateOptions).format(now);
 
   timeLabel.textContent = formattedTime;
   dateLabel.textContent = formattedDate;
-  homeDate.textContent = new Intl.DateTimeFormat('en-US', { weekday: 'long' }).format(now);
+  homeDate.textContent = new Intl.DateTimeFormat('ko-KR', { weekday: 'long' }).format(now);
 };
 
 const wakeScreen = () => {
