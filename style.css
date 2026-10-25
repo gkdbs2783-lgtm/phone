@@ -175,16 +175,16 @@ body {
 }
 
 .date-label {
-  font-size: 1rem;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
   font-weight: 600;
   color: rgba(18, 52, 40, 0.82);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   text-transform: capitalize;
 }
 
 .time-label {
-  font-size: clamp(4.8rem, 6vw, 6.2rem);
+  font-size: clamp(4.1rem, 5vw, 5.2rem);
   line-height: 1;
   font-weight: 800;
   letter-spacing: -0.06em;
@@ -199,11 +199,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .unlock-handle {
-  width: 98px;
+  width: 96px;
   height: 7px;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.82);
@@ -211,7 +211,7 @@ body {
 }
 
 .unlock-text {
-  font-size: 0.95rem;
+  font-size: 0.84rem;
   letter-spacing: -0.01em;
   font-weight: 600;
   color: rgba(20, 58, 45, 0.78);
@@ -261,7 +261,7 @@ body {
   justify-content: center;
   padding-top: 52px;
   color: rgba(15, 25, 22, 0.88);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
 }
@@ -298,7 +298,7 @@ body {
 }
 
 .app-label {
-  font-size: 0.72rem;
+  font-size: 0.62rem;
   font-weight: 600;
 }
 
@@ -354,15 +354,15 @@ body {
   }
 
   .date-label {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .time-label {
-    font-size: clamp(4.5rem, 10vw, 5.4rem);
+    font-size: clamp(4rem, 9vw, 5rem);
   }
 
   .unlock-text {
-    font-size: 1rem;
+    font-size: 0.86rem;
   }
 
   .app-grid {
