@@ -7,7 +7,7 @@
   --screen-bg-2: #b8d0b1;
   --screen-text: #143a2d;
   --screen-muted: rgba(20, 58, 45, 0.65);
-  --green-accent: #3fcf6d;
+  --green-accent: #57e66a;
   --green-dark: #2f9d59;
   --white-soft: rgba(255, 255, 255, 0.62);
   --soft-shadow: rgba(24, 41, 28, 0.28);
@@ -107,7 +107,7 @@ body {
   display: inline-block;
   border-radius: 50%;
   background: var(--green-accent);
-  box-shadow: 0 0 10px rgba(63, 207, 109, 0.9);
+  box-shadow: 0 0 10px rgba(87, 230, 106, 0.95), 0 0 18px rgba(87, 230, 106, 0.7);
 }
 
 .battery {
