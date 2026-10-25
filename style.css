@@ -1,6 +1,5 @@
 :root {
   --bg: #dfe9dc;
-  --bg-soft: #a9b9b1;
   --phone-shell: #0d120f;
   --phone-glass: rgba(255, 255, 255, 0.12);
   --screen-bg-1: #d9e5d0;
@@ -21,26 +20,22 @@
 
 html, body {
   width: 100%;
-  min-height: 100%;
-  font-family: "Inter", "SF Pro Display", sans-serif;
+  height: 100%;
+  font-family: "Inter", "SF Pro Display", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.38), transparent 36%),
-    linear-gradient(180deg, #a9b9b1 0%, #dfe9e2 100%);
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.45), transparent 38%),
+    linear-gradient(180deg, #eff7ee 0%, var(--bg) 100%);
 }
 
 body {
   display: grid;
   place-items: center;
-  min-height: 100vh;
-  padding: 18px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .phone-shell {
-  --phone-width: clamp(290px, 82vw, 390px);
-  width: var(--phone-width);
-  height: calc(var(--phone-width) / 0.485);
-  max-height: calc(100vh - 28px);
+  width: min(84vw, 390px);
+  aspect-ratio: 0.485;
   display: grid;
   place-items: center;
   filter: drop-shadow(0 26px 42px rgba(36, 51, 38, 0.22));
@@ -74,14 +69,14 @@ body {
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
+  width: 172px;
   height: 30px;
   border-radius: 999px;
   background: rgba(7, 10, 9, 0.82);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 0 12px 0 10px;
   z-index: 20;
 }
@@ -95,14 +90,10 @@ body {
 }
 
 .status-pill {
-  position: absolute;
-  top: 50%;
-  left: calc(100% + 10px);
-  transform: translateY(-50%);
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  margin-left: 0;
+  margin-left: auto;
 }
 
 .indicator-dot {
@@ -156,7 +147,9 @@ body {
 }
 
 .lock-screen {
-  background: linear-gradient(180deg, #a7b9b1 0%, #d4ddd5 100%);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 20%),
+    linear-gradient(180deg, var(--screen-bg-1) 0%, var(--screen-bg-2) 100%);
   color: var(--screen-text);
   opacity: 0;
   transform: scale(0.96);
@@ -174,7 +167,7 @@ body {
 
 .time-block {
   position: absolute;
-  top: 116px;
+  top: 115px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -182,7 +175,7 @@ body {
 }
 
 .date-label {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
   font-weight: 600;
   color: rgba(18, 52, 40, 0.82);
@@ -191,7 +184,7 @@ body {
 }
 
 .time-label {
-  font-size: clamp(4.2rem, 8vw, 5.5rem);
+  font-size: clamp(4.1rem, 5vw, 5.2rem);
   line-height: 1;
   font-weight: 800;
   letter-spacing: -0.06em;
@@ -200,29 +193,30 @@ body {
 
 .unlock-indicator {
   position: absolute;
-  bottom: 46px;
+  bottom: 44px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .unlock-handle {
-  width: 92px;
-  height: 6px;
+  width: 96px;
+  height: 7px;
   border-radius: 999px;
-  background: rgba(18, 52, 40, 0.28);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.82);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
 .unlock-text {
   font-size: 0.84rem;
-  letter-spacing: 0.06em;
-  font-weight: 500;
-  color: rgba(20, 58, 45, 0.7);
+  letter-spacing: -0.01em;
+  font-weight: 600;
+  color: rgba(20, 58, 45, 0.78);
   text-transform: none;
+  transform: translateY(-2px);
 }
 
 .lock-screen.visible .unlock-text {
@@ -232,11 +226,11 @@ body {
 @keyframes hintPulse {
   0%, 100% {
     opacity: 0.7;
-    transform: translateY(0);
+    transform: translateY(-2px);
   }
   50% {
     opacity: 1;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
   }
 }
 
@@ -265,16 +259,16 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 54px;
+  padding-top: 52px;
   color: rgba(15, 25, 22, 0.88);
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.04em;
 }
 
 .app-grid {
   width: 100%;
-  margin-top: 34px;
+  margin-top: 36px;
   padding: 0 26px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -291,20 +285,20 @@ body {
 }
 
 .app-icon {
-  width: 60px;
-  height: 60px;
+  width: 56px;
+  height: 56px;
   border-radius: 16px;
   display: grid;
   place-items: center;
   background: rgba(255, 255, 255, 0.28);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.32), 0 8px 18px rgba(42, 62, 56, 0.1);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: rgba(13, 28, 22, 0.76);
 }
 
 .app-label {
-  font-size: 0.74rem;
+  font-size: 0.62rem;
   font-weight: 600;
 }
 
@@ -332,15 +326,15 @@ body {
 }
 
 .dock-item {
-  width: 58px;
-  height: 58px;
+  width: 52px;
+  height: 52px;
   margin: 0 auto;
   border-radius: 16px;
   display: grid;
   place-items: center;
   background: rgba(255, 255, 255, 0.22);
   color: rgba(24, 41, 38, 0.76);
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 700;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
@@ -350,21 +344,13 @@ body {
 }
 
 @media (max-width: 430px) {
-  body {
-    padding: 12px;
-  }
-
   .phone-shell {
-    --phone-width: min(86vw, 360px);
-    max-height: calc(100vh - 18px);
+    width: min(88vw, 360px);
   }
 
   .dynamic-island {
-    width: 116px;
-  }
-
-  .time-block {
-    top: 102px;
+    width: 152px;
+    height: 28px;
   }
 
   .date-label {
@@ -372,45 +358,18 @@ body {
   }
 
   .time-label {
-    font-size: clamp(4rem, 10vw, 5rem);
-  }
-
-  .unlock-indicator {
-    bottom: 38px;
+    font-size: clamp(4rem, 9vw, 5rem);
   }
 
   .unlock-text {
-    font-size: 0.8rem;
-  }
-
-  .home-top {
-    padding-top: 48px;
-    font-size: 0.88rem;
+    font-size: 0.86rem;
   }
 
   .app-grid {
-    margin-top: 28px;
     gap: 18px 8px;
-    padding: 0 18px;
-  }
-
-  .app-icon {
-    width: 56px;
-    height: 56px;
-    font-size: 1.6rem;
-  }
-
-  .app-label {
-    font-size: 0.76rem;
   }
 
   .dock {
     width: calc(100% - 26px);
-  }
-
-  .dock-item {
-    width: 54px;
-    height: 54px;
-    font-size: 1.5rem;
   }
 }
